@@ -5,14 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
     <link rel="stylesheet" href="assets/style.css">
-    <title>Document</title>
+    <title>Music is Fun</title>
 </head>
 
-<body>
+<body class="container-fluid">
 
+    <header class="row">
+        <div class="col-12 bannerStyle">
+            <p>Music is Fun</p>
+        </div>
+        <div class="offset-9 col-3 searchStyle">
+            <input type="text" class="form-control" placeholder="Search Here">
+        </div>
+    </header>
 
+    <main class="row">
+        <div class="col col-md-8" id="music-list"></div>
+        <div class="col col-md-4" id="playlist"></div>
+    </main>
 
+    <footer class="footer row">
+        <p>Fancy!!</p>
+    </footer>
 
     <script src="app/main.js" type="module"></script>
 </body>

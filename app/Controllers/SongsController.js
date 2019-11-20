@@ -1,4 +1,4 @@
-import ValuesService from "../Services/ValuesService.js";
+import SongsService from "../Services/SongsService.js";
 import store from "../store";
 
 //Private
@@ -8,7 +8,7 @@ function _draw() {
 }
 
 //Public
-export default class ValuesController {
+export default class SongsController {
   constructor() {
     store.subscribe("values", _draw);
   }
