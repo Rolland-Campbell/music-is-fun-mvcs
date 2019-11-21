@@ -1,26 +1,37 @@
 export default class Song {
     constructor(data) {
-        this._id = data._id
-        this.imgUrl = data.imgUrl
-        this.title = data.title
-        this.artist = data.artist
-        this.album = data.album
+        this.title = data.trackName || data.title
+        this.albumArt = data.albumArt || data.artworkUrl100.replace(/100x100/g, "300x300")
+        this.artist = data.artistName || data.artist
+        this.album = data.collectionName || data.album
+        this.price = data.trackPrice || data.price
+        this.preview = data.previewUrl || data.preview
+        this._id = data.trackId || data._id
     }
 
     get Template() {
         return `
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img src="${this.imgUrl}" class="card-img" alt="...">
-                </div>
-        <div class="col-md-8">
-            <div class="card-body">
-                <h5 class="card-title">${this.title}</h5>
-                <p class="card-text">${this.artist}</p>
-                <p class="card-text">${this.album}</p>
-            </div>
-            </div>
+        <div class="card m-3">
+        <img class="card-img-top " src="${this.albumArt}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">${this.title}</h5>
+            <p class="card-text">Artist: ${this.artist}<br> Collection: ${this.album}<br> price: $${this.price}<br></p>
+            <audio controls src="${this.preview}"></audio>
+            <button class="btn btn-warning" onclick="app.controllers.playlistController.addSong('${this._id}')">Add</button>
+        </div>
+        </div>
+        `
+    }
+
+    get playlistTemplate() {
+        return `
+        <div class="card m-3">
+        <img class="card-img-top " src="${this.albumArt}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">${this.title}</h5>
+            <p class="card-text">Artist: ${this.artist}<br> Collection: ${this.album}<br> price: $${this.price}<br></p>
+            <audio controls src="${this.preview}"></audio>
+            <button class="btn btn-danger" onclick="app.controllers.playlistController.removeSong('${this._id}')">Delete</button>
         </div>
         </div>
         `

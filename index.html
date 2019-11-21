@@ -16,26 +16,28 @@
         <div class="col-12 bannerStyle">
             <p>Music is Fun</p>
         </div>
-        <div class="offset-9 col-3 searchStyle">
-            <form onsubmit="app.controllers.playlistController.search(event)">
-                <div class="form-group row">
-                    <input type="text" class="form-control" name="query" placeholder="Search For Music">
-                    <button class="btn btn-success mt-1 form-control" type="submit">Search</button>
-                </div>
+        <div class="offset-8 col-4">
+            <form onsubmit="app.controllers.SongsController.search(event)">
+                <input type="text" class="form-control" name="query" placeholder="Search For Music">
             </form>
+            <button class="btn btn-success mt-1 form-control" type="submit">Search</button>
         </div>
     </header>
 
     <main class="row">
-        <div id="songs" class="row">
-            <!-- template to generate -->
+        <div class="col-6">
+            <h3 class="text-center">Search Results</h3>
+            <div id="songs" class="col-12">
+                <!-- template to generate -->
+            </div>
         </div>
-        <div class="col col-md-4" id="playlist"></div>
+        <div class="col-6">
+            <h3 class="text-center">Playlist</h3>
+            <div class="col-12" id="playlist">
+                <!-- template for playlist -->
+            </div>
+        </div>
     </main>
-
-    <footer class="footer row">
-        <p>Fancy!!</p>
-    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"
         integrity="sha256-XmdRbTre/3RulhYk/cOBUMpYlaAp2Rpo/s556u0OIKk=" crossorigin="anonymous"></script>

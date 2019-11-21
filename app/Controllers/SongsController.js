@@ -1,4 +1,3 @@
-import store from "../store";
 import service from "../Services/SongsService.js";
 
 let _ss = service;
@@ -27,14 +26,13 @@ function _drawPlaylist() {
 //Public
 export default class SongsController {
   constructor() {
-    store.subscribe("songs", _draw);
+    //_ss.subscribe("songs", _draw);
     _ss.addListener("songs", _draw)
     _ss.addListener("playlist", _drawPlaylist)
     _ss.getMusicByQuery('')
   }
 
   search(e) {
-    debugger
     e.preventDefault();
     _ss.getMusicByQuery(e.target.query.value)
   }

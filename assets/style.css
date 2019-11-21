@@ -1,15 +1,15 @@
 body {
   height: 100%;
   margin: auto;
-  background-image: url("https://media.istockphoto.com/videos/close-up-of-wall-made-of-wooden-planks-4k-video-id941413352?s=640x640");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: chocolate;
 }
 
 header {
   height: 20%;
   margin: auto;
-  background-color: slategray;
+   background-image: url("https://media.istockphoto.com/videos/close-up-of-wall-made-of-wooden-planks-4k-video-id941413352?s=640x640");
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 5px;
 }
 
@@ -28,18 +28,4 @@ header {
 main {
   height: 70%;
   margin: auto;
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 10%;
-  width: cover;
-  justify-content: center;
-  align-content: flex-end;
-  margin: auto;
-  background-color: slategray;
-  color: white;
 }

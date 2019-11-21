@@ -1,4 +1,3 @@
-import Store from "../store.js";
 import Song from "../Models/Song.js"
 
 // @ts-ignore
@@ -44,6 +43,8 @@ class SongsService {
     // @ts-ignore
     $.getJSON(url)
       .then(res => {
+        console.log(res);
+
         let results = res.results.map(rawData => new Song(rawData))
         _setState('songs', results)
         console.log(results);

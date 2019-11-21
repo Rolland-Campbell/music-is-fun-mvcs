@@ -1,7 +1,11 @@
-import ValuesController from "./Controllers/ValuesController.js";
+import SongsController from "./Controllers/SongsController.js";
 
 class App {
-  valuesController = new ValuesController();
+  constructor() {
+    this.controllers = {
+      SongsController: new SongsController()
+    }
+  }
 }
 
 window["app"] = new App();
