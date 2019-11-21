@@ -26,7 +26,6 @@ function _drawPlaylist() {
 //Public
 export default class SongsController {
   constructor() {
-    //_ss.subscribe("songs", _draw);
     _ss.addListener("songs", _draw)
     _ss.addListener("playlist", _drawPlaylist)
     _ss.getMusicByQuery('')
@@ -39,6 +38,10 @@ export default class SongsController {
 
   addSong(id) {
     _ss.addSong(id)
+  }
+
+  removeSong(id) {
+    _ss.removeSong(id)
   }
 
 }

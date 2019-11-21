@@ -21,6 +21,7 @@ function _setState(propName, data) {
 }
 
 class SongsService {
+
   constructor() {
     // NOTE this will get your songs on page load
     this.getMySongs()
@@ -43,8 +44,6 @@ class SongsService {
     // @ts-ignore
     $.getJSON(url)
       .then(res => {
-        console.log(res);
-
         let results = res.results.map(rawData => new Song(rawData))
         _setState('songs', results)
         console.log(results);
@@ -65,13 +64,22 @@ class SongsService {
     if (!songToSave) return alert("We couldn't find that song. sorry.")
     _sandBox.post('', songToSave)
       .then(res => {
-        console.log(res)
         let copyOfPlaylist = this.Playlist
         copyOfPlaylist.push(new Song(res.data.data))
         _setState('playlist', copyOfPlaylist)
       })
       .catch(err => console.error(err))
   }
+
+  removeSong(id) {
+    let songToRemove = this.Playlist.find(s => s._id == id)
+    if (!songToRemove) return alert("We couldn't find that song. sorry.")
+    _sandBox.delete(id)
+    this.Playlist.splice(songToRemove, 1)
+    let copyOfPlaylist = this.Playlist
+    _setState('playlist', copyOfPlaylist)
+  }
+
 }
 
 
