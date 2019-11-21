@@ -17,12 +17,19 @@
             <p>Music is Fun</p>
         </div>
         <div class="offset-9 col-3 searchStyle">
-            <input type="text" class="form-control" placeholder="Search Here">
+            <form onsubmit="app.controllers.playlistController.search(event)">
+                <div class="form-group row">
+                    <input type="text" class="form-control" name="query" placeholder="Search For Music">
+                    <button class="btn btn-success mt-1 form-control" type="submit">Search</button>
+                </div>
+            </form>
         </div>
     </header>
 
     <main class="row">
-        <div class="col col-md-8" id="music-list"></div>
+        <div id="songs" class="row">
+            <!-- template to generate -->
+        </div>
         <div class="col col-md-4" id="playlist"></div>
     </main>
 
@@ -30,6 +37,11 @@
         <p>Fancy!!</p>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"
+        integrity="sha256-XmdRbTre/3RulhYk/cOBUMpYlaAp2Rpo/s556u0OIKk=" crossorigin="anonymous"></script>
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
+        </script>
     <script src="app/main.js" type="module"></script>
 </body>
 

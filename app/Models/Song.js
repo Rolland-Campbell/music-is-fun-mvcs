@@ -1,5 +1,6 @@
 export default class Song {
     constructor(data) {
+        this._id = data._id
         this.imgUrl = data.imgUrl
         this.title = data.title
         this.artist = data.artist

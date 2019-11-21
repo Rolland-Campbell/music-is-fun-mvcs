@@ -1,17 +1,16 @@
-import Value from "./Models/Value";
+import Song from "./Models/Song.js";
 
 let _state = {
-  activeValue: new Value(),
-  /** @type {Value[]} */
-  values: []
+  songs: [],
+  playlist: []
 };
 
 /** Collection of listeners to be called based on keyed state changes
  * @type {{[x:string]: function[]}}
  */
 let _listeners = {
-  activeValue: [],
-  values: []
+  songs: [],
+  playlist: []
 };
 
 //NOTE You should not need to change the code from this point down
