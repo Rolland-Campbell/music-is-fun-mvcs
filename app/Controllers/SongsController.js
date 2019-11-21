@@ -42,6 +42,7 @@ export default class SongsController {
 
   removeSong(id) {
     _ss.removeSong(id)
+    _drawPlaylist()
   }
 
 }

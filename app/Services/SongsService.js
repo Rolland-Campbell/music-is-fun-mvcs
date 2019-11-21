@@ -72,12 +72,12 @@ class SongsService {
   }
 
   removeSong(id) {
-    let songToRemove = this.Playlist.find(s => s._id == id)
-    if (!songToRemove) return alert("We couldn't find that song. sorry.")
     _sandBox.delete(id)
-    this.Playlist.splice(songToRemove, 1)
-    let copyOfPlaylist = this.Playlist
-    _setState('playlist', copyOfPlaylist)
+      .then(res => {
+        let index = _state.playlists.findIndex(s => s._id == id)
+        _state.playlist.splice(index, 1)
+        _setState('playlist', _state.playlist)
+      })
   }
 
 }
