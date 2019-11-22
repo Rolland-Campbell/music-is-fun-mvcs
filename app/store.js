@@ -1,7 +1,9 @@
 import Song from "./Models/Song.js";
 
 let _state = {
+  /**@type {Song[]} */
   songs: [],
+  /**@type {Song[]} */
   playlist: []
 };
 

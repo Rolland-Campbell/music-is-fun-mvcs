@@ -1,87 +1,73 @@
-import Song from "../Models/Song.js"
+import Song from "../Models/Song.js";
+import store from "../store.js";
 
 // @ts-ignore
 let _sandBox = axios.create({
-  baseURL: '//bcw-sandbox.herokuapp.com/api/Bud/songs'
-})
-
-let _state = {
-  songs: [],
-  playlist: []
-}
-
-let _listeners = {
-  songs: [],
-  playlist: []
-}
-
-function _setState(propName, data) {
-  _state[propName] = data
-  _listeners[propName].forEach(fn => fn());
-}
+  baseURL: "//bcw-sandbox.herokuapp.com/api/Bud/songs"
+});
 
 class SongsService {
-
   constructor() {
     // NOTE this will get your songs on page load
-    this.getMySongs()
-  }
-
-  addListener(propName, fn) {
-    _listeners[propName].push(fn)
-  }
-
-  get Songs() {
-    return _state.songs.map(s => new Song(s))
-  }
-
-  get Playlist() {
-    return _state.playlist
+    this.getMySongs();
   }
 
   getMusicByQuery(query) {
-    let url = 'https://itunes.apple.com/search?callback=?&term=' + query;
+    let url = "https://itunes.apple.com/search?callback=?&term=" + query;
     // @ts-ignore
     $.getJSON(url)
       .then(res => {
-        let results = res.results.map(rawData => new Song(rawData))
-        _setState('songs', results)
-        console.log(results);
+        let results = res.results.map(rawData => new Song(rawData));
+        store.commit("songs", results);
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        throw new Error(err);
+      });
   }
 
   getMySongs() {
-    _sandBox.get()
+    _sandBox
+      .get()
       .then(res => {
-        let playlist = res.data.data.map(s => new Song(s))
-        _setState('playlist', playlist)
+        let playlist = res.data.data.map(s => new Song(s));
+        store.commit("playlist", playlist);
       })
+      .catch(error => {
+        throw new Error(error.response.data.message);
+      });
   }
 
   addSong(id) {
-    let songToSave = this.Songs.find(s => s._id == id)
-    if (!songToSave) return alert("We couldn't find that song. sorry.")
-    _sandBox.post('', songToSave)
+    let songToSave = store.State.songs.find(s => s._id == id);
+    if (!songToSave) {
+      throw new Error("We couldn't find that song. sorry.");
+    }
+    _sandBox
+      .post("", songToSave)
       .then(res => {
-        let copyOfPlaylist = this.Playlist
-        copyOfPlaylist.push(new Song(res.data.data))
-        _setState('playlist', copyOfPlaylist)
+        let playlist = store.State.playlist;
+        playlist.push(new Song(res.data.data));
+        store.commit("playlist", playlist);
       })
-      .catch(err => console.error(err))
+      .catch(error => {
+        throw new Error(error.response.data.message);
+      });
   }
 
   removeSong(id) {
-    _sandBox.delete(id)
+    _sandBox
+      .delete(id)
       .then(res => {
-        let index = _state.playlists.findIndex(s => s._id == id)
-        _state.playlist.splice(index, 1)
-        _setState('playlist', _state.playlist)
+        let playlist = store.State.playlist;
+        let index = playlist.findIndex(s => s._id == id);
+        playlist.splice(index, 1);
+        store.commit("playlist", playlist);
       })
+      .catch(error => {
+        throw new Error(error.response.data.message);
+      });
   }
-
 }
-
 
 const service = new SongsService();
 export default service;
