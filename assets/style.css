@@ -14,16 +14,30 @@ header {
 }
 
 .bannerStyle {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   color: white;
   font-size: xx-large;
+  justify-content: center;
+  align-items: center;
+}
+
+.bannerItem1 {
+  text-align: center;
+  padding-bottom: 3px;
+}
+
+.bannerItem2 {
+  text-align: center;
+  padding-bottom: 3px;
+}
+
+.bannerItem3 {
+  text-align: center;
+  padding-bottom: 3px;
 }
 
 .recordImg {
   height: 150px;
-  width: 150px;
+  width: 160px;
   -webkit-animation: rotation 2s infinite linear;
 }
 

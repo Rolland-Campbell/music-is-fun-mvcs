@@ -12,28 +12,32 @@
 
 <body class="container-fluid">
 
-    <header class="row">
-        <div class="col-12 bannerStyle">
+    <header class="row bannerStyle">
+        <div class="col-12 col-md-4 bannerItem1">
             <p>Music is Fun</p>
-            <img class="recordImg" src="https://www.stickpng.com/assets/images/5856b3da4f6ae202fedf2794.png"
+        </div>
+        <div class="col-12 col-md-4 bannerItem2">
+            <img class="recordImg order-2" src="https://www.stickpng.com/assets/images/5856b3da4f6ae202fedf2794.png"
                 alt="record">
-            <form onsubmit="app.controllers.SongsController.search(event)">
+        </div>
+        <div class="col-12 col-md-4 bannerItem3">
+            <form onsubmit="app.controllers.SongsController.search(event)" class="order 3">
                 <input type="text" class="form-control" name="query" placeholder="Search For Music">
             </form>
         </div>
     </header>
 
     <main class="row">
-        <div class="col-6">
-            <h3 class="text-center">Search Results</h3>
-            <div id="songs" class="col-12 m-0">
-                <!-- template to generate -->
-            </div>
-        </div>
-        <div class="col-6">
+        <div class="order-md-2 col-md-6">
             <h3 class="text-center">Playlist</h3>
             <div class="col-12 m-0" id="playlist">
                 <!-- template for playlist -->
+            </div>
+        </div>
+        <div class="order-md-1 col-md-6">
+            <h3 class="text-center">Search Results</h3>
+            <div id="songs" class="col-12 m-0">
+                <!-- template to generate -->
             </div>
         </div>
     </main>
