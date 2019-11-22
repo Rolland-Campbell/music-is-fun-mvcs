@@ -5,9 +5,9 @@ body {
 }
 
 header {
-  height: 20%;
+  height: 30%;
   margin: auto;
-   background-image: url("https://media.istockphoto.com/videos/close-up-of-wall-made-of-wooden-planks-4k-video-id941413352?s=640x640");
+  background-image: url("https://media.istockphoto.com/videos/close-up-of-wall-made-of-wooden-planks-4k-video-id941413352?s=640x640");
   background-repeat: no-repeat;
   background-size: cover;
   padding: 5px;
@@ -15,14 +15,25 @@ header {
 
 .bannerStyle {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   color: white;
   font-size: xx-large;
 }
 
-.searchStyle {
-  display: flex;
-  justify-content: center;
+.recordImg {
+  height: 150px;
+  width: 150px;
+  -webkit-animation: rotation 2s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+		from {
+				-webkit-transform: rotate(0deg);
+		}
+		to {
+				-webkit-transform: rotate(359deg);
+		}
 }
 
 main {

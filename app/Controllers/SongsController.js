@@ -4,7 +4,7 @@ import SongService from "../Services/SongsService.js";
 //Private
 function _draw() {
   let elem = document.getElementById("songs");
-  let songs = store.State.Songs;
+  let songs = store.State.songs;
   let template = "<ul>";
   songs.forEach(s => {
     template += s.Template;
@@ -14,7 +14,7 @@ function _draw() {
 
 function _drawPlaylist() {
   let elem = document.getElementById("playlist");
-  let songs = store.State.Playlist;
+  let songs = store.State.playlist;
   let template = "<ul>";
   songs.forEach(s => {
     template += s.playlistTemplate;

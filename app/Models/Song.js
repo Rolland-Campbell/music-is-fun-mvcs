@@ -16,8 +16,8 @@ export default class Song {
         <div class="card-body">
             <h5 class="card-title">${this.title}</h5>
             <p class="card-text">Artist: ${this.artist}<br> Collection: ${this.album}<br> price: $${this.price}<br></p>
-            <audio controls src="${this.preview}"></audio>
-            <button class="btn btn-warning" onclick="app.controllers.SongsController.addSong('${this._id}')">Add</button>
+            <audio controls src="${this.preview}" class="col-12"></audio>
+            <button class="btn btn-warning offset-4 col-4" onclick="app.controllers.SongsController.addSong('${this._id}')">Add</button>
         </div>
         </div>
         `
@@ -30,8 +30,8 @@ export default class Song {
         <div class="card-body">
             <h5 class="card-title">${this.title}</h5>
             <p class="card-text">Artist: ${this.artist}<br> Collection: ${this.album}<br> price: $${this.price}<br></p>
-            <audio controls src="${this.preview}"></audio>
-            <button class="btn btn-danger" onclick="app.controllers.SongsController.removeSong('${this._id}')">Delete</button>
+            <audio controls src="${this.preview}" class="col-12"></audio>
+            <button class="btn btn-danger offset-4 col-4" onclick="app.controllers.SongsController.removeSong('${this._id}')">Delete</button>
         </div>
         </div>
         `
