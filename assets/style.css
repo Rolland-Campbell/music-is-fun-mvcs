@@ -7,9 +7,10 @@ body {
 header {
   height: 30%;
   margin: auto;
-  background-image: url("https://media.istockphoto.com/videos/close-up-of-wall-made-of-wooden-planks-4k-video-id941413352?s=640x640");
+  /* background-image: url("https://media.istockphoto.com/videos/close-up-of-wall-made-of-wooden-planks-4k-video-id941413352?s=640x640");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
+  background-color: teal;
   padding: 5px;
 }
 
@@ -53,6 +54,12 @@ header {
 main {
   height: 70%;
   margin: auto;
+  background-image: url("https://cdn.vox-cdn.com/thumbor/DSMVhhC-i_OOOeBqjqfvv9xdpok=/0x0:1153x865/1400x1400/filters:focal(0x0:1153x865):format(jpeg)/cdn.vox-cdn.com/uploads/chorus_image/image/46815774/trippy_image.0.0.jpg");
+  min-height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 
 ul {
